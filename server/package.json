@@ -1,0 +1,26 @@
+{
+  "name": "shrinidhi",
+  "version": "1.0.0",
+  "main": "main.js",
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "body-parse": "^0.1.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^5.4.16",
+    "nodemailer": "^5.1.1",
+    "nodemon": "^1.18.10",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "shrinidhi",
+  "license": "ISC",
+  "description": ""
+}

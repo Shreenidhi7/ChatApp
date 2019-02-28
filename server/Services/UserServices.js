@@ -3,8 +3,6 @@ const userModel=require('../Application/Model/userModel');
 exports.login=(data,callback)=>{
     userModel.login(data,(err,result)=>{
         if(err){
-            console.log("djkgjkfjdkg");
-            
             callback(err);
         }
         else{
@@ -29,7 +27,35 @@ exports.registration=(data,callback)=>{
     })
 }
 
+exports.redirect=(decoded,callback)=>{
+    userModel.confirmUser(decoded,(err,result)=>{
+        if(err) {
+            callback(err)
+        }else {
+            callback(null,result)
+        }
+    })
+}
 
+exports.getUserEmail=(data,callback)=>{
+    userModel.findUserEmail(data,(err,result)=>{
+        if(err){
+            callback(err);
+        }else {
+            callback(null,result)
+        }
+    })
+}
+
+exports.resetPass=(req,callback)=>{
+    userModel.updateUserPassword(req,(err,result)=>{
+        if(err){
+            callback(err);
+        }else {
+            callback(null,result)
+        }
+    })
+}
 
 
 exports.getAllUsers=(data,callback)=>{

@@ -125,10 +125,10 @@ class LoginPage extends React.Component{
                      
                         </div>
                     </form>
-                    <small> 
+                    <strong> 
                           <a
                           onClick={this.Onclick} href="forgotpassword"> Forgot Password</a>
-                        </small>
+                        </strong>
                 </div>
                 < ToastContainer/>
             </div>

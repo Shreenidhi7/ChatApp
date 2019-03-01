@@ -58,7 +58,7 @@ exports.resetPass=(req,callback)=>{
 }
 
 
-exports.getAllUsers=(data,callback)=>{
+exports.getAllUsers=               (data,callback)=>{
     userModel.getAllUsers(data,(err,result)=>{
         if(err)
         {

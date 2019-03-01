@@ -293,7 +293,7 @@ border: 1px solid #353333;
   border: 2px solid #fff;
 
   margin-top: 1em;
-  padding: 9px 29px;
+  padding: 9px 39px;
   font-size: 1em;
   font-weight: bold;
   letter-spacing: 1px;
@@ -312,7 +312,7 @@ background-color: rgba(255, 255, 255, 0);
 }
 .appbar {
 color: #fff;
-background-color: #3f51b5;
+background-color: black;
 padding: 42px;
 }
 
@@ -357,9 +357,10 @@ color: inherit;
 margin-left: 81%;
 border-color: currentColor;
 }
+
 #buttonalter{
 
-color: inherit;
+color:bisque;
 margin-left: 81%;
 margin-top: -45px;
 border-color: currentColor;
@@ -368,7 +369,7 @@ border-color: currentColor;
 text-align: center;
 width: 100%;
 color:bisque;
-font-weight: lighter;
+font-weight: bolder;
 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .div1{
@@ -429,15 +430,81 @@ justify-content: inherit;
 color:#e3e3f3 
 }
 #dashsendButton{
-color: #fff;
+color: #0e0e0e;
 margin-left: 618px;
-background-color:red;
+background-color:black;
 margin-bottom: 41px;
 margin-top: -3%;
 
 }
 #loginas {
-color: inherit;
+color: bisque;
 margin-left: -81%;
 border-color: currentColor;
+}
+
+
+.MuiMenuItem-root-116 {
+color: rgba(0, 0, 0, 0.87);
+width: auto;
+height: 3px;
+overflow: hidden;
+font-size: 1rem;
+box-sizing: content-box;
+font-weight: 300;
+font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+line-height: 1.5em;
+white-space: nowrap;
+}
+
+.MuiMenuItem-gutters-117 {
+  padding-left: 8px;
+  padding-right: 16px;
+}
+
+#MuiInputBase-input-93 {
+  font: inherit;
+  color: black;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 6px 0 7px;
+  display: block;
+  min-width: 0;
+  box-sizing: content-box;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button2 {
+  background-color:black;
+  color: #fff;
+  border: 2px solid #fff;
+  margin-top: 1em;
+  padding: 9px 29px;
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 0.25em;
+  border-radius: 18px;
+}
+
+.MuiButtonBase-root-63 {
+  color: inherit;
+  border: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  outline: none;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  justify-content: center;
+  -moz-appearance: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
 }

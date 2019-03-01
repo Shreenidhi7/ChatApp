@@ -63,6 +63,12 @@ class ResetPassword extends React.Component {
         };
         Onclick=e=>{
             e.preventDefault();
+            //this.props.props.history.push("/loginPage")
+        };
+
+        registrationclick = e => {
+            e.preventDefault();
+            this.props.props.history.push("/login");
         };
 
         render(){
@@ -90,7 +96,7 @@ class ResetPassword extends React.Component {
                             </div>
                         
                         <div className="password">
-                            <label htmlFor="password">Conform Password </label>
+                            <label htmlFor="password">Confirm Password </label>
                         
                         <input
                             className={formErrors.conformpassword.length>0 ? "error":null}
@@ -100,6 +106,37 @@ class ResetPassword extends React.Component {
                             noValidate
                             onChange={this.handleChange}
                         />
+                    
+                {/*      <strong>
+                                    <button  class="button2"
+                                     onClick={this.onClick}href="loginPage">Submit
+                                                
+                                    </button>
+                        </strong>
+                */}
+                   
+                {/*    <strong>
+                        <div>
+                            <button  class="button1"
+                           onClick={this.registrationclick}>
+                               Login
+                            </button>
+                        </div>           
+                    </strong>  
+                */}   
+
+
+                <div className="login">
+                    <button type="submit" title="click on Login"
+                        onClick={this.registrationclick}>
+                                Login
+                    </button>
+                </div>
+
+
+
+
+
                         {
                             formErrors.conformpassword.length>0 && (
                                 <span className="errorMessage">{formErrors.conformpassword}</span>
@@ -111,6 +148,7 @@ class ResetPassword extends React.Component {
             );
         }
     }
+
 
     export {reset}
     export default ResetPassword;

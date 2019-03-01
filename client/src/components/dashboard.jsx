@@ -80,7 +80,7 @@ export default class DashboardPage extends React.Component {
 
 
       chatDisplay(Sender, this.state.Receiver, this.state.message);
-    {}
+    {
 
         
         let request = {
@@ -98,10 +98,11 @@ export default class DashboardPage extends React.Component {
         this.setState({ MsgDisplay: this.state.message })
         this.handleClick = this.handleClick.bind(this);
     }
+    }
 
     handlelogout = event => {
         event.preventDefault();
-        this.props.props.history.push('/loginPage');
+        this.props.props.history.push('/login');
     }
     handleClick = (key, event) => {
         this.setState({ anchorEl: null });
@@ -127,27 +128,17 @@ export default class DashboardPage extends React.Component {
             };
         });
 
-        const msg = this.state.msg.map((key) => {
-
-            return (
-
+     const msg = this.state.msg.map((key) => {
+        return (
                 <div>
-
-
-                    <MenuItem>{key.senderId}:{key.message}   </MenuItem>
-
+                <MenuItem>{key.senderId}:{key.message}   </MenuItem>
                 </div>
-
             )
         })
 
 
-    
-
-
-    
-
-        return (<div>
+ return (
+        <div>
             <div className="root">
                 <AppBar position="static">
                     <h1 id="heading">Chat-App </h1>
@@ -161,16 +152,17 @@ export default class DashboardPage extends React.Component {
                 <label>Users</label>
                 <div>{loginUsers}</div>
             </div>
+
             <div className="div2" >
                 {this.state.Receiver}
                 {msg}
                 <MessageDisplay
                     MsgArray={this.state.MsgArray}
-                    recieverId={this.state.Receiver} />
-
-
+                    recieverId={this.state.Receiver} >
+            </MessageDisplay>
             </div>
 
+         
             <div>
                 <form className="container" >
                     <TextField
@@ -181,6 +173,8 @@ export default class DashboardPage extends React.Component {
                         onChange={this.handleMessage}></TextField>
                 </form>
             </div>
+
+            
             <div>
                 <Button variant="contained" color="primary" id="dashsendButton">
 

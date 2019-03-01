@@ -20,6 +20,7 @@ require('dotenv').config()
 const dbConfig=require('./Config/db.Config');
 const mongoose=require('mongoose');
 mongoose.Promise=global.Promise;
+console.log("promise: ",mongoose.Promise)
 /**
  * connecting to the database
  */
@@ -46,6 +47,8 @@ io.sockets.on("connection",function(socket)
 console.log("hai io connected");
 connections.push(socket)
 console.log("user connected");
+
+
 socket.on('new_msg',function(req)
     {
         chatControllers.addMessage(req,(err,result) =>{
@@ -76,7 +79,7 @@ io.on("disconnect",function(data)
 
 
 
-
+  
 
 
 

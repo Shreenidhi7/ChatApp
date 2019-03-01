@@ -80,7 +80,7 @@ class LoginPage extends React.Component{
         return (
             <div className="wrapper" >
                 <div className="form-wrapper">
-                       <h1>Login Page</h1>
+                       <h1>Login</h1>
                     <form onSubmit={this.handleSubmit} noValidate>
                         <div className="email">
                             <label htmlFor="email">Email</label>
@@ -118,7 +118,7 @@ class LoginPage extends React.Component{
                         <div>
                             <button  class="button1"
                            onClick={this.registrationclick}>
-                               Register if New
+                               Register
                             </button>
                         </div>
                         <div>

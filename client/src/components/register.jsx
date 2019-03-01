@@ -76,11 +76,11 @@ class RegisterPage extends React.Component {
         switch (name) {
             case "firstName":
                 formErrors.firstName =
-                    value.length < 5 ? "minimum 5 characaters required" : "";
+                    value.length < 2 ? "minimum 2 characaters required" : "";
                 break;
             case "lastName":
                 formErrors.lastName =
-                    value.length < 5 ? "minimum 5 characaters required" : "";
+                    value.length < 2 ? "minimum 2 characaters required" : "";
                 break;
             case "email":
                 formErrors.email = emailRegex.test(value)

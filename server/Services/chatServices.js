@@ -1,4 +1,5 @@
 const chatModel=require('../Application/Model/chatModel');
+
 exports.addMessage=(req,callback)=>{
     chatModel.addMessage(req,(err,result)=>{
         if(err)

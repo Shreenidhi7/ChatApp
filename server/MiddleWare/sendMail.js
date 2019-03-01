@@ -9,7 +9,7 @@ const nodemailer=require('nodemailer');
  * STMP is mail server which is reponsible for sending
  */
 
- exports.sendEmailFunction=(url)=>{
+ exports.sendEMailFunction=(url)=>{
      /**
       * creating transport obj send mail
       */

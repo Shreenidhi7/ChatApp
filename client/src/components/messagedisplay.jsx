@@ -32,8 +32,6 @@ class MessageDisplay extends Component {
                          )
                      }   
                 </div>
-            
-            
             )
         )
     }

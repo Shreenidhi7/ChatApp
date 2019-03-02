@@ -4,14 +4,14 @@ import React from "react";
 import '../App.css';
 //import TextField from '@material-ui/core/TextField';
 import { TextField, MenuItem } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
+import AppBar from '@material-ui/core/AppBar/AppBar';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import { chatServices, chatDisplay, userChatArray } from "../services/chatServices";
 import MessageDisplay from './messagedisplay';
 import io from 'socket.io-client';
-const socket = io.connect('http://localhost:3000')
-
+const socket = io.connect('http://localhost:3000')   //original
+//const socket=io('http://localhost:3000')
 
 export default class DashboardPage extends React.Component {
     constructor(props) {
@@ -66,7 +66,7 @@ export default class DashboardPage extends React.Component {
 
     }
     handleMessage = (e) => {
-        this.setState({ message: e.target.value });
+        this.setState({ message: e.target.value }, ()=>{console.log('message---->', this.state.message)});
     }
     handleSubmit = (event) => {
         event.preventDefault();
@@ -75,35 +75,35 @@ export default class DashboardPage extends React.Component {
         this.setState({ Sender: Sender })
         console.log('Sender is :', Sender);
         console.log("Selected receiver: ", this.state.Receiver);
+        console.log("Selected message: ", this.state.message);
+
+        chatDisplay(Sender, this.state.Receiver, this.state.message);
+        // {
+
+        //     let request = {
+        //         senderId: Sender,
+        //         recieverId: this.state.Receiver,
+        //         message: this.state.message,
+        //     }
+        //     socket.emit("new_msg", request);
 
 
-
-
-      chatDisplay(Sender, this.state.Receiver, this.state.message);
-    {
-
-        
-        let request = {
-            senderId: Sender,
-            recieverId: this.state.Receiver,
-            message: this.state.message,
-        }
-        socket.emit("new_msg", request);
-
-
-        this.setState({
-            message: '',
-            anchorEl: null
-        });
-        this.setState({ MsgDisplay: this.state.message })
-        this.handleClick = this.handleClick.bind(this);
+        //     this.setState({
+        //         message: '',
+        //         anchorEl: null
+        //     });
+        //     this.setState({ MsgDisplay: this.state.message })
+        //     this.handleClick = this.handleClick.bind(this);
+        // }
     }
-    }
+    /**************************************************************************** */
+
 
     handlelogout = event => {
         event.preventDefault();
         this.props.props.history.push('/login');
     }
+
     handleClick = (key, event) => {
         this.setState({ anchorEl: null });
         let Receiver = event.target.textContent;
@@ -111,9 +111,10 @@ export default class DashboardPage extends React.Component {
 
     };
 
+
     render() {
-        console.log('Sender is :', this.state.Sender);
-        console.log("Selected receiver: ", this.state.Receiver);
+        // console.log('Sender is :', this.state.Sender);
+        // console.log("Selected receiver: ", this.state.Receiver);
         const loginUsers = this.state.onlineUser.map((key) => {
             console.log("  local data ", localStorage.getItem('Sender'));
 
@@ -128,61 +129,71 @@ export default class DashboardPage extends React.Component {
             };
         });
 
-     const msg = this.state.msg.map((key) => {
-        return (
+        const msg = this.state.msg.map((key) => {
+
+            return (
                 <div>
-                <MenuItem>{key.senderId}:{key.message}   </MenuItem>
+                    <MenuItem>{key.senderId}:{key.message}   </MenuItem>
                 </div>
             )
         })
 
 
- return (
-        <div>
-            <div className="root">
-                <AppBar position="static">
-                    <h1 id="heading">Chat-App </h1>
-                    <Button id="buttonalter" onClick={this.handlelogout} color="inherit"
-                    >Logout</Button>
-                    <p id="loginas">Logined As- {localStorage.getItem("Sender")}</p>
-                </AppBar>
-            </div >
-
-            <div className="div1">
-                <label>Users</label>
-                <div>{loginUsers}</div>
-            </div>
-
-            <div className="div2" >
-                {this.state.Receiver}
-                {msg}
-                <MessageDisplay
-                    MsgArray={this.state.MsgArray}
-                    recieverId={this.state.Receiver} >
-            </MessageDisplay>
-            </div>
-
-         
+        return (
             <div>
-                <form className="container" >
-                    <TextField
-                        id=" textfieldInput"
-                        className="textField"
-                        margin="normal"
-                        value={this.state.message}
-                        onChange={this.handleMessage}></TextField>
-                </form>
-            </div>
+                <div className="root">
+                    <AppBar position="static">
+                        <h1 id="heading">Chat-App </h1>
+                        <Button id="buttonalter" onClick={this.handlelogout} color="inherit"
+                        >Logout</Button>
+                        <p id="loginas">Logined As- {localStorage.getItem("Sender")}</p>
+                    </AppBar>
+                </div >
 
-            
-            <div>
-                <Button variant="contained" color="primary" id="dashsendButton">
+                <div className="div1">
+                    <label>Users</label>
+                    <div>{loginUsers}</div>
+                </div>
 
-                    {/* This Button uses a Font Icon, see the installation instructions in the docs. */}
-                    <Icon class="senddashlabel" onClick={this.handleSubmit}>Send Message</Icon>
-                </Button>
-            </div>
-        </div>
+                <div className="div2" >
+                    {this.state.Receiver}
+                    {msg}
+
+                    <MessageDisplay
+                        MsgArray={this.state.MsgArray}
+                        recieverId={this.state.Receiver} >
+                    </MessageDisplay>
+                </div>
+
+
+                <div>
+                    <form className="container" >
+                        <TextField
+
+                            id=" textfieldInput"
+                            className="textField"
+                            margin="normal"
+                            value={this.state.message}
+                            onChange={this.handleMessage}>
+
+                        </TextField>
+                        <Button variant="contained" color="primary" id="dashsendButton">
+
+                        {/* This Button uses a Font Icon, see the installation instructions in the docs. */}
+                        <Icon class="senddashlabel" onClick={this.handleSubmit}>Send Message</Icon>
+                    </Button>
+                    </form>
+                </div>
+
+
+                {/* <div>
+                    <Button variant="contained" color="primary" id="dashsendButton"> */}
+
+                        {/* This Button uses a Font Icon, see the installation instructions in the docs. */}
+                {/*    <Icon class="senddashlabel" onClick={this.handleSubmit}>Send Message</Icon>  */}
+                    {/* </Button>
+                </div> */}
+            </div>   
         );
     }
 }

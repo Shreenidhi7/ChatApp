@@ -41,6 +41,7 @@ var chatSchema=new mongoSchema({
             {
                 console.log("message saved successfully");
                 return callback(null,result)
+                //return result;
             }
         });
     }

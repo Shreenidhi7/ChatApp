@@ -9,6 +9,7 @@ exports.addMessage=(req,callback)=>{
         else
         {
             return callback(null,result);
+          // return result
         }
     })
 }

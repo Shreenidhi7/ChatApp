@@ -32,7 +32,9 @@ mongoose.connect(dbConfig.url, {
 }).catch(err =>{
     console.log("Couldnot Connect to the database.Exiting now...!",err);
     process.exit();
-    
+});
+app.get('/',(req,res)=>{
+    res.join({"message":"Welcome to Chat-App"});
 });
 /**
  * listen for requests
@@ -40,6 +42,10 @@ mongoose.connect(dbConfig.url, {
 const server=app.listen(8080,()=>{
     console.log("Server is listening on port 8080");   
 });
+
+
+
+
 connections=[];
 const io=require('socket.io').listen(server)
 io.sockets.on("connection",function(socket)
@@ -58,7 +64,7 @@ socket.on('new_msg',function(req)
             }
             else
             {
-                //socket.emit('emitMsg',result)
+               // socket.emit('emitMsg',result)
             }
             io.emit(req.receiverId,req)
             io.emit(req.senderId,req)    

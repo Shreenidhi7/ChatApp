@@ -7,7 +7,8 @@ module.exports.addMessage=(req,callback)=>{
         }
         else
         {
-            return callback(null,data);
+            return callback(null,data);     //some doubt
+            //return data;
         }
     })
 }

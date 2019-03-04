@@ -392,17 +392,20 @@ border: 2px solid;
 overflow: auto
 
 }
+
 .container {
 display: 'flex';
 flex-Wrap: 'wrap';
 margin-left: 0%
 }
+
 .textField {
 margin-Left:30% ;
 margin-Right:10px ;
 width: 40%;
 padding:0px 310px;
 }
+
 #textfieldInput {
 left: 0;
 right: 0;
@@ -414,14 +417,16 @@ margin-left: -220px;
 transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 border-bottom: 1px solid rgba(0, 0, 0, 0.42);
 pointer-events: none;
-
 }
+
 #Icon{
 margin-Left: 41px
 }
+
 #dashbutton{
 color:#e3e3f3 
 }
+
 .senddashlabel {
 width: 100%;
 display: inherit;
@@ -429,14 +434,15 @@ align-items: inherit;
 justify-content: inherit;
 color:#e3e3f3 
 }
+
 #dashsendButton{
 color: #0e0e0e;
 margin-left: 618px;
 background-color:black;
 margin-bottom: 41px;
 margin-top: -3%;
-
 }
+
 #loginas {
 color: bisque;
 margin-left: -81%;

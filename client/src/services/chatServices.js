@@ -18,8 +18,13 @@ export function chatDisplay(Sender, Receiver, req) {
         message: req
     }
     console.log('-----------------------', request);
-    socket.emit("new_msg", request);
-    socket.on("emutMsg", (result) => {
+    // socket.emit("new_msg", request);
+    // socket.on("emutMsg", (result) => {
+    //     console.log("receiver data to services-->", result);
+    // })
+
+    socket.emit("new_msg", request) 
+    socket.emit("emitMsg", (result) => {
         console.log("receiver data to services-->", result);
     })
 }
